@@ -1,0 +1,18 @@
+# Environments
+.venv/
+env/
+
+# API Keys
+.env
+
+# Vector Databases
+chroma_db/
+chroma_db_large/
+
+# Cache
+__pycache__/
+.pytest_cache/
+
+# Local Databases
+*.db
+chat_memory.db
