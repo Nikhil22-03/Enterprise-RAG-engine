@@ -26,6 +26,22 @@ Because the merged ensemble pool contains noisy candidates, a HuggingFace `Cross
 
 ---
 
+## 🗂️ Knowledge Domain & Dataset
+This RAG engine is purpose-built to ingest, parse, and reason across highly technical, math-heavy machine learning research papers. 
+
+* **Ingestion Corpus:** The `data/` directory is populated with foundational Deep Learning and LLM architecture documentation:
+  * *Attention Is All You Need* (Vaswani et al., 2017)
+  * *LoRA: Low-Rank Adaptation of Large Language Models* (Hu et al., 2021)
+  * *FlashAttention-2: Faster Attention with Better Parallelism* (Dao, 2023)
+  * *The Llama 3 Herd of Models* (Meta, 2024)
+  * *PyTorch 2.0 Technical Documentation*
+* **Target QA Capabilities:** The evaluation pipeline specifically tests the engine's ability to handle multi-hop reasoning across these specific papers, such as:
+  * *"How does the memory complexity of FlashAttention-2 compare to the standard scaled dot-product attention described in the original 2017 Transformer paper?"*
+  * *"Explain how LoRA reduces the number of trainable parameters during fine-tuning compared to full parameter updates for architectures like Llama 3."*
+  * *"What are the specific compiler-level graph execution optimizations introduced in PyTorch 2.0?"*
+  
+  ---
+  
 ## 🛡️ Models & Enterprise Engineering Standards
 
 ### Model Stack
