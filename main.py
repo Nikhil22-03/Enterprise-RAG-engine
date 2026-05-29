@@ -27,9 +27,6 @@ import torch_directml
 from langfuse.langchain import CallbackHandler
 
 load_dotenv()
-# Replace this with your actual Vector Store imports (e.g., Chroma or FAISS)
-# from langchain_community.vectorstores import FAISS 
-# from langchain_openai import OpenAIEmbeddings
 
 # ==========================================
 # 1. API INITIALIZATION & MODELS
@@ -54,9 +51,6 @@ class ChatResponse(BaseModel):
     answer: str
     citations: List[str]
 
-# ==========================================
-# 2. STARTUP EVENTS (Loading the Brain)
-# ==========================================
 # ==========================================
 # RETRIEVER DEFINITIONS & DEDUPLICATION
 # ==========================================
@@ -105,6 +99,7 @@ class DualEnsembleRetriever(BaseRetriever):
         merged = small_docs + large_docs
         deduped = deduplicate_by_span(merged, threshold=self.dedup_threshold)
         return deduped
+    
 # ==========================================
 # 2. STARTUP EVENTS (Loading the Brain)
 # ==========================================
@@ -230,9 +225,7 @@ async def load_resources():
     )
     
     print("[SYSTEM] Server Ready to accept requests.")
-# ==========================================
-# 3. THE CORE API ENDPOINT
-# ==========================================
+    
 # ==========================================
 # 3. THE CORE API ENDPOINT
 # ==========================================
