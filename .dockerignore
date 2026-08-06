@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.git/
+.github/
+*.md
+!README.md
+notebooks/
+*.ipynb
+.pytest_cache/
+.DS_Store
+chat_memory.db

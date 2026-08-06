@@ -1,18 +1,36 @@
-# Environments
+# --- Secrets (NEVER commit these) ---
+.env
+!.env.example
+
+# --- Virtual environment ---
 .venv/
+venv/
 env/
 
-# API Keys
-.env
-
-# Vector Databases
-chroma_db/
-chroma_db_large/
-
-# Cache
+# --- Python cache/build artifacts ---
 __pycache__/
+*.pyc
+*.pyo
 .pytest_cache/
+*.egg-info/
+build/
+dist/
 
-# Local Databases
-*.db
+# --- Local runtime state (regenerated automatically) ---
 chat_memory.db
+
+# --- Jupyter checkpoints ---
+.ipynb_checkpoints/
+
+# --- OS/editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# NOTE: chroma_db/ and chroma_db_large/ are INTENTIONALLY NOT ignored.
+# This project ships the pre-built vector index alongside the code so the
+# deployed container never needs to re-embed documents at startup (see
+# build_index.py / README for the offline-indexing rationale).
+#
+# NOTE: data/*.pdf is also intentionally NOT ignored — only 5 small source
+# papers, needed for anyone who wants to re-run build_index.py from scratch.

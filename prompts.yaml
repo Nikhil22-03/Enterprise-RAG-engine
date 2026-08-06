@@ -1,4 +1,4 @@
-version: "1.1"
+version: "1.2"
 author: "Nikhil"
 
 query_rewriter:
@@ -25,7 +25,23 @@ query_rewriter:
     RECENT CONVERSATION HISTORY:
     {chat_history}
     
-    HISTORY RULE: ONLY use the history above to resolve pronouns (e.g., changing "what did it do?" to "what did RAVEN do?"). NEVER copy specific answers, nouns, or facts from the AI's previous responses into your optimized query.
+    HISTORY RULE — READ CAREFULLY:
+    - You MUST resolve pronouns ("it", "this", "that", "they") into the actual
+      technical entity/subject name (e.g. a method, model, or system name)
+      mentioned anywhere in the history above — whether it appeared in the
+      User's turn OR the AI's turn. Entity/subject names are ALWAYS safe to
+      reuse for this purpose.
+    - You must NOT copy specific quantitative claims, numeric results, or
+      conclusions stated in the AI's previous answer (e.g. percentages,
+      speedup factors, measurements) into the rewritten query — only the
+      subject noun/entity, never the AI's stated facts about it.
+    - Example: History shows the AI discussed "LoRA fine-tuning" and its
+      parameter-reduction benefits. User now asks "does it affect
+      performance?" -> Correct rewrite: "LoRA finetuning affect performance"
+      (entity "LoRA finetuning" reused, no numbers/claims copied).
+    - If NO entity/subject is identifiable anywhere in the history, keep the
+      query as close to the user's literal wording as possible rather than
+      guessing.
 
     User: {input}
     Output:
