@@ -20,8 +20,4 @@ for i in $(seq 1 60); do
 done
 
 echo "[start.sh] Launching Streamlit frontend on :7860..."
-streamlit run frontend.py \
-  --server.port 7860 \
-  --server.address 0.0.0.0 \
-  --server.headless true \
-  --browser.gatherUsageStats false
+streamlit run frontend.py --server.port=$PORT --server.address=0.0.0.0
